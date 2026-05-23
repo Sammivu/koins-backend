@@ -22,10 +22,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @Audit(
-            action = "REGISTER_USER",
-            entityType = "USER"
-    )
+    @Audit(action = "REGISTER_USER", entityType = "USER")
     @PostMapping("/register")
     @Operation(summary = "Register a new user")
     public ResponseEntity<ApiResponse<AuthResponse>> register(@Valid @RequestBody RegisterRequest request) {
@@ -75,8 +72,7 @@ public class AuthController {
     @PutMapping("/profile")
     @Operation(summary = "Update profile details", security = @SecurityRequirement(name = "bearerAuth"))
     public ResponseEntity<ApiResponse<UserResponse>> updateProfile(
-            @Valid @RequestBody UpdateProfileRequest request,
-            Authentication authentication) {
+            @Valid @RequestBody UpdateProfileRequest request, Authentication authentication) {
         return ResponseEntity.ok(authService.updateProfile(authentication.getName(), request));
     }
 }

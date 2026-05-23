@@ -28,7 +28,8 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
 
     private static final String[] PUBLIC_ENDPOINTS = {
-            "/api/v1/auth/**", "/api/v1/webhooks/**",
+            "/api/v1/auth/resend-otp", "/api/v1/auth/login", "/api/v1/auth/register", "/api/v1/auth/verify/email",
+            "/api/v1/auth/forgot-password", "/api/v1/auth/verify-otp", "/api/v1/webhooks/**",
             "/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**"
     };
 
